@@ -1,0 +1,27 @@
+
+<div class="form-container">
+    <h2>Add Product</h2>
+
+    <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
+        <!-- Product Name -->
+        <label>Product Name</label>
+        <input type="text" placeholder="Enter product name" name="name"   ngModel required>
+
+        <!-- Price -->
+        <label>Price</label>
+        <input type="number" placeholder="Enter price"name="price"   ngModel required>
+
+        <!-- Image Upload -->
+        <label>Upload Image</label>
+        <input type="file" accept="image/*" (change)="onImageSelect($event)">
+
+        <!-- Submit -->
+        <button type="submit">Add Product</button>
+    </form>
+</div>
+
+<div class="buttons">
+        <a routerLink="/scrolling" >Paginator Scroling</a>
+        <a routerLink="/infinite-scrolling"> infinite-scrolling</a>
+</div>
+

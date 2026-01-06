@@ -1,0 +1,41 @@
+<!-- product-list.component.html -->
+<app-header></app-header>
+
+<div class="global-loader" *ngIf="loading">
+    <mat-spinner diameter="50"></mat-spinner>
+</div>
+
+<div class="card">
+    <div class="product-grid">
+        <div class="product-card" *ngFor="let p of products">
+            <div class="image-wrapper">
+                <img [src]="'http://localhost:3000/uploads/' + p.image" />
+
+                <!-- ✅ WISHLIST INSIDE IMAGE -->
+                <div class="wishlist-bar">
+                    <span>♡</span>
+                    <span>WISHLIST</span>
+                </div>
+            </div>
+
+            <!-- <div class="wishlist-bar">
+            <span>♡</span>
+            <span>WISHLIST</span>
+        </div> -->
+
+            <div class="product-info">
+                <h3 class="brand">{{p.name}}</h3>
+                <p class="price">RS.{{p.price}}</p>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+    <div class="paginator-center">
+        <mat-paginator [length]="totalItems" [pageSize]="pageSize" (page)="onPageChange($event)">
+        </mat-paginator>
+    </div>
